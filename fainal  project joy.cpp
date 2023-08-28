@@ -7,13 +7,23 @@ public:
 };
 
 class Pen : public StudyMaterial {
-public:
+private:
 
     string color;
 
-    Pen(string c) {
+public:
+
+   /*Pen(string c) {
+    color=c;
+    }*/
+
+    void setcolor(string c){
+
     color=c;
     }
+    string getcolor(){
+    return color;
+ }
 
     void use(){
         cout << "Using a " << color << " pen to write notes." << endl;
@@ -48,11 +58,12 @@ public:
 };
 
 int main() {
-   //string color = "blue";
-    Pen p("blue");
+    Pen p;
+    p.setcolor("red");
+    p.setcolor("Blue");
+    p.getcolor();
     p.use();
 
-    //string bookTitle = "C++";
     Book c("C++");
     c.use();
 
@@ -61,7 +72,7 @@ int main() {
 
     Laptop l;
     l.use();
-    cout<<"#########"<<endl;
+    cout<<"\n"<<"**********"<<endl;
 
     StudyMaterial* s;
     s=&p;
@@ -69,11 +80,6 @@ int main() {
     //
     s=&c;
     s->use();
-     //{&p, &c, &n, &l};
 
-//for (StudyMaterial* material : materials) {
-    //material->use();
-   // }
 
-    return 0;
 }
