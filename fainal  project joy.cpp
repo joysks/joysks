@@ -13,13 +13,11 @@ private:
 
 public:
 
-   /*Pen(string c) {
-    color=c;
-    }*/
-
     void setcolor(string c){
 
     color=c;
+
+
     }
     string getcolor(){
     return color;
@@ -31,11 +29,16 @@ public:
 };
 
 class Book : public StudyMaterial {
-public:
+private:
     string title;
-
-    Book(string t){
+public:
+   void setBook(string t){
     title=t;
+    }
+
+    string getBook(){
+    return title;
+
     }
 
     void use()  {
@@ -59,12 +62,26 @@ public:
 
 int main() {
     Pen p;
-    p.setcolor("red");
-    p.setcolor("Blue");
-    p.getcolor();
-    p.use();
 
-    Book c("C++");
+   string k;
+    cout<<"Input Favarit color: "<<endl;
+
+    cin>>k;
+    p.setcolor(k);
+
+    p.getcolor();
+
+
+    Book c;
+    string b;
+    cout<<"Input Your Favarit Book: " <<endl;
+    cin>>b;
+
+
+   c.setBook(b);
+   c.getBook();
+   
+    p.use();
     c.use();
 
     Notebook n;
@@ -72,12 +89,11 @@ int main() {
 
     Laptop l;
     l.use();
-    cout<<"\n"<<"**********"<<endl;
+    cout<<"\n"<<"*******"<<endl;
 
     StudyMaterial* s;
     s=&p;
     s->use();
-    //
     s=&c;
     s->use();
 
